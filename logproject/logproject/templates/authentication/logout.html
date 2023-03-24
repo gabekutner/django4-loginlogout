@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div style="margin: 15px;">
+        <div class="option"><h4 style="color: #757575;">Here's your account username<h4></div>
+        <div class="option"><h3 style="color: #fff9;">{{ request.user }}</h3></div>
+    </div>
+
+    <div class="option"><h3 style="color: #757575;">That's it.</h3></div>
+    <div class="option"><a href="{% url 'logout' %}" style="color: #fff9; font-size: 20px;">Logout</a></div>
+
+    
+    
+
+{% endblock %}

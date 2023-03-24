@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="input-box underline">
+            {{ form.username }}
+            <div class="underline"></div>
+        </div>
+        
+        <div class="input-box underline">
+            {{ form.password }}
+            <div class="underline"></div>
+        </div>
+
+        <div class="input-box button">
+        <input type="submit" name="" value="Sign Up">
+        </div>
+    </form>
+    <div class="option"><a href="{% url 'login' %}" style="color: #757575;">Already have an account?</a></div>
+
+
+{% endblock %}
