@@ -9,7 +9,7 @@ from .models import Profile
 class CreateUserForm(ModelForm):
     class Meta: 
         model = User
-        fields = ['username', 'password']
+        fields = ['username', 'email', 'password']
         widgets = {
             'username': TextInput(attrs={
                 'style': 'color: #fff; background: #16222E;',
@@ -18,5 +18,6 @@ class CreateUserForm(ModelForm):
             'password': PasswordInput(attrs={
                 'style': 'color: #fff; background: #16222E;',
                 'placeholder': 'Enter Your Password',
-                })   
+                }),
+            
         }

@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -33,8 +32,8 @@ def registerPage(request):
 def loginPage(request):
 
     if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        username = request.POST['username']
+        password = request.POST['password']
 
         user = authenticate(request, username=username, password=password)
 
