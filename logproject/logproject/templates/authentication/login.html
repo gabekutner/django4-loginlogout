@@ -23,7 +23,9 @@
     </form>
 
     {% for message in messages %}
-        <p id="messages">{{ message }}</p>
+        
+        <p id="messages" class="alert-{{ message.tags }}">{{ message }}</p>
+        
     {% endfor %}
 
     <div class="option"><a href="{% url 'register' %}" style="color: #757575;">Don't have an account?</a></div>

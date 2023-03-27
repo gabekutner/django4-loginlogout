@@ -6,18 +6,24 @@ from django.forms import TextInput, PasswordInput, EmailInput
 
 from .models import Profile
 
-class CreateUserForm(ModelForm):
+class CreateUserForm(UserCreationForm):
     class Meta: 
         model = User
-        fields = ['username', 'email', 'password']
-        widgets = {
+        fields = ['username', 'password1', 'password2'] #email
+        '''widgets = {
             'username': TextInput(attrs={
-                'style': 'color: #fff; background: #16222E;',
                 'placeholder': 'Enter A Username',
                 }),
-            'password': PasswordInput(attrs={
+            'password1': PasswordInput(attrs={
                 'style': 'color: #fff; background: #16222E;',
                 'placeholder': 'Enter Your Password',
                 }),
+            'password2': PasswordInput(attrs={
+                'placeholder': 'Confirm Your Password',
+            }),
+            'email': EmailInput(attrs={
+                'style:': 'color: #fff; background: #16222E;',
+                'placeholder': 'Enter Your Email',
+            })
             
-        }
+        }'''

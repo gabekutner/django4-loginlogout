@@ -141,12 +141,23 @@ html, body{
   background: linear-gradient( to left,  #3b5998 0%, #476bb8 100%);
   margin: 20px 0 50px 0;
 }
-.container #messages {
-  border: 1px solid #bd2f20; /* #C84032 */
+
+.container .alert-info {
+  border: 1px solid #bd2f20; 
   margin: 10px;
   font-size: 16px;
   padding: 5px;
   text-align: center;
   color: #bd2f20;
+  border-radius: 5px;
+}
+
+.container .alert-success {
+  border: 1px solid #3C7E3F;
+  margin: 10px;
+  font-size: 16px;
+  padding: 5px;
+  text-align: center;
+  color: #3C7E3F;
   border-radius: 5px;
 }
