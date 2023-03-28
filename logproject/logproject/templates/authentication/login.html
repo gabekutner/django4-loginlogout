@@ -14,9 +14,14 @@
             <div class="underline"></div>
         </div>
         <div class="input-box">
-            <input type="password" name="password" placeholder="Enter Your Password" required>
+            
+            <input id="pswrd" type="password" name="password" placeholder="Enter Your Password" required>
             <div class="underline"></div>
+            
+            <!--<input type="checkbox" onclick="toggleVisibility()" style="float: right; width: 15px; height: 15px;"/>-->
+
         </div>
+        
         <div class="input-box button">
             <input type="submit" name="" value="Log In">
         </div>
@@ -29,6 +34,18 @@
     {% endfor %}
 
     <div class="option"><a href="{% url 'register' %}" style="color: #757575;">Don't have an account?</a></div>
-    <div class="option" style="margin-top: 0.5rem;"><a href="" style="color: #757575; ">Forgot your password?</a></div>
+    <div class="option" style="margin-top: 0.5rem;"><a href="{% url 'reset_password' %}" style="color: #757575; ">Forgot your password?</a></div>
+
+    <script>
+        function toggleVisibility() {
+            var getPassword = document.getElementById('pswrd');
+            if(getPassword.type === 'password') {
+                getPassword.type = 'text';
+            } else {
+                getPassword.type = 'password';
+            }
+        }
+
+    </script>
 
 {% endblock %}

@@ -9,21 +9,4 @@ from .models import Profile
 class CreateUserForm(UserCreationForm):
     class Meta: 
         model = User
-        fields = ['username', 'password1', 'password2'] #email
-        '''widgets = {
-            'username': TextInput(attrs={
-                'placeholder': 'Enter A Username',
-                }),
-            'password1': PasswordInput(attrs={
-                'style': 'color: #fff; background: #16222E;',
-                'placeholder': 'Enter Your Password',
-                }),
-            'password2': PasswordInput(attrs={
-                'placeholder': 'Confirm Your Password',
-            }),
-            'email': EmailInput(attrs={
-                'style:': 'color: #fff; background: #16222E;',
-                'placeholder': 'Enter Your Email',
-            })
-            
-        }'''
+        fields = ['username', 'email', 'password1', 'password2']

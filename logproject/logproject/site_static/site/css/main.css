@@ -93,7 +93,7 @@ html, body{
   cursor: pointer;
 }
 .container .input-box input[type="submit"]:hover{
-  background: #1D477C;
+  background: #265ea3;
 }
 .container .option{
   font-size: 14px;

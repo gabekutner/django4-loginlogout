@@ -11,11 +11,10 @@
             <div class="underline"></div>
         </div>
         
-        <!-- Email css underline doesn't work
         <div class="input-box underline">
             {{ form.email }}
             <div class="underline"></div>
-        </div>-->
+        </div>
 
         <div class="input-box underline">
             {{ form.password1 }}
@@ -28,7 +27,7 @@
         </div>
 
         <div class="input-box button">
-        <input type="submit" name="" value="Sign Up">
+            <input type="submit" name="" value="Sign Up">
         </div>
     </form>
 
@@ -39,8 +38,9 @@
     <script>
         var form_fields = document.getElementsByTagName('input')
         form_fields[1].placeholder = "Enter Your Username";
-        form_fields[2].placeholder = "Enter Your Password";
-        form_fields[3].placeholder = "Confirm Your Password";
+        form_fields[2].placeholder = "Enter Your Email";
+        form_fields[3].placeholder = "Enter Your Password";
+        form_fields[4].placeholder = "Confirm Your Password";
 
         for (var field in form_fields){
             form_fields[field].className += 'form-control'
