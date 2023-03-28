@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block css %}
+
+    <link rel="stylesheet" href="{% static 'site/css/login.css' %}">
+
+{% endblock %}
+
 
 {% block content %}
 
@@ -23,7 +29,7 @@
         </div>
         
         <div class="input-box button">
-            <input type="submit" name="" value="Log In">
+            <input type="submit" name="login" value="Log In">
         </div>
     </form>
 
@@ -36,16 +42,7 @@
     <div class="option"><a href="{% url 'register' %}" style="color: #757575;">Don't have an account?</a></div>
     <div class="option" style="margin-top: 0.5rem;"><a href="{% url 'reset_password' %}" style="color: #757575; ">Forgot your password?</a></div>
 
-    <script>
-        function toggleVisibility() {
-            var getPassword = document.getElementById('pswrd');
-            if(getPassword.type === 'password') {
-                getPassword.type = 'text';
-            } else {
-                getPassword.type = 'password';
-            }
-        }
-
-    </script>
+    <!-- password visibility -->
+    <script src="{% static 'site/js/login.js' %}"></script>
 
 {% endblock %}

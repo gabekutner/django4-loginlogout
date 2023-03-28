@@ -12,7 +12,7 @@ urlpatterns = [
 
     #password reset
     path('reset_password/', 
-        auth_views.PasswordResetView.as_view(template_name="password_resets/password_reset.html"), 
+        auth_views.PasswordResetView.as_view(template_name="password_resets/password_reset.html", html_email_template_name="password_resets/password_reset_html_email.html"), 
         name="reset_password"),
 
     path('reset_password_sent/', 
