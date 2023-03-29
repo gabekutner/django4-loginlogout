@@ -2,6 +2,10 @@
 {% load static %}
 
 
+{% block head_title %}
+    Register
+{% endblock %}
+
 {% block content %}
 
     <form method="POST" action="">
@@ -34,7 +38,9 @@
     {{ form.errors }}
 
     <div class="option"><a href="{% url 'login' %}" style="color: #757575;">Already have an account?</a></div>  
-    <script src="{% static 'site/js/register.js' %}"></script>
 
+    {% block js %}
+        <script src="{% static 'site/js/register.js' %}"></script>
+    {% endblock %}
 
 {% endblock %}

@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block head_title %}
+    Login
+{% endblock %}
 {% block css %}
-
     <link rel="stylesheet" href="{% static 'site/css/login.css' %}">
-
 {% endblock %}
 
 
@@ -43,6 +44,8 @@
     <div class="option" style="margin-top: 0.5rem;"><a href="{% url 'reset_password' %}" style="color: #757575; ">Forgot your password?</a></div>
 
     <!-- password visibility -->
-    <script src="{% static 'site/js/login.js' %}"></script>
+    {% block js %}
+        <script src="{% static 'site/js/login.js' %}"></script>
+    {% endblock %}
 
 {% endblock %}

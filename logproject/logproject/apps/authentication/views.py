@@ -11,7 +11,7 @@ from .forms import CreateUserForm
 # Create your views here.
 @login_required(login_url='login')
 def base_view(request):
-    return render(request, 'authentication/logout.html')
+    return render(request, 'registration/logout.html')
 
 def registerPage(request):
 
@@ -27,7 +27,7 @@ def registerPage(request):
             return redirect('login')
 
     context = {'form':form}
-    return render(request, 'authentication/register.html', context)
+    return render(request, 'registration/register.html', context)
 
 def loginPage(request):
 
@@ -44,7 +44,7 @@ def loginPage(request):
             messages.info(request, "Username or password is incorrect.")
 
     context = {}
-    return render(request, 'authentication/login.html', context)
+    return render(request, 'registration/login.html', context)
 
 def logoutUser(request):
     logout(request)

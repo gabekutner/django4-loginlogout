@@ -3,13 +3,15 @@
 <html>
     
 <head>
-   <meta charset="UTF-8">
-	<title></title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-   <link rel="stylesheet" href="{% static 'site/css/main.css' %}">
-   {% block css %}{% endblock %}
+    <title>{% block head_title %}{% endblock %}</title>
+    {% include 'misc/includes/favicons.html' %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="{% static 'site/css/main.css' %}">
+    {% block css %}{% endblock %}
     
 </head>
 <body>
@@ -19,7 +21,6 @@
 
 
          {% endblock %}
-
 
         <!-- Login / Register with Google, etc --> 
         <!-- 
@@ -31,5 +32,6 @@
           <a href="#"><i class="fab fa-facebook-f"></i>Sign in With Facebook</a>
         </div>--> 
    </div>
+   {% block js %}{% endblock %}
 </body>
 </html>
