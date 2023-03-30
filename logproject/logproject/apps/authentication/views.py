@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Profile
-from .forms import CreateUserForm
+from .forms import CreateUserForm, SetPasswordForm
 
 # Create your views here.
 @login_required(login_url='login')
@@ -49,3 +49,18 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
+
+def change_password(request):
+
+    user = request.user
+    form = SetPasswordForm(user)
+
+    if request.method == 'POST':
+        form = SetPasswordForm(user, request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your password has been changed.')
+            return redirect('login')
+
+    context = {'form': form}
+    return render(request, 'registration/pw_reset/password_reset_form.html', context)
