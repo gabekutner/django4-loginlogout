@@ -47,6 +47,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    #default
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,12 +57,9 @@ INSTALLED_APPS = [
 
     #Third party 
     'logproject.apps.authentication',
-    # Google assisted login
-    #'django.contrib.sites',
-    #'allauth',
-    #'allauth.account',
-    #'allauth.socialaccount',
-    #'allauth.socialaccount.providers.google'
+    # Socials assisted login -- Google, Facebook, Twitter
+    'social_django',
+    
 ]
 
 MIDDLEWARE = [
@@ -72,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'logproject.urls'
@@ -87,6 +86,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
+                #social_django
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -107,6 +110,23 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = get_secret("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = get_secret("EMAIL_HOST_PASSWORD")
+
+# Social Logins
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2', #github (applied)
+    'social_core.backends.twitter.TwitterOAuth', #twitter
+    'social_core.backends.facebook.FacebookOAuth2', #facebook
+    'social_core.backends.google.GoogleOAuth2', #google (applied)
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GITHUB_KEY = get_secret("SOCIAL_AUTH_GITHUB_KEY")
+SOCIAL_AUTH_GITHUB_SECRET = get_secret("SOCIAL_AUTH_GITHUB_SECRET")
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = get_secret("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = get_secret("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
+
+LOGIN_REDIRECT_URL = '/'
 
 #crispy-forms
 #CRISPY_TEMPLATE_PACK = 'bootstrap4'

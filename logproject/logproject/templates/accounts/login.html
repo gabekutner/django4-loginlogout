@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}
+    Login
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/css/login.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <form method="POST" action="" style="margin-top: 60px;">
+        {% csrf_token %}
+        <!--<div class="title">Login</div>-->
+        <div><img src="{% static 'site/img/login-lock2.png' %}" style="width: 25%; height: 25%; display: block; margin: auto; margin-bottom: 45px;"></div>
+
+        <div class="input-box underline">
+            <input type="text" name="username" placeholder="Enter Your Username" required>
+            <div class="underline"></div>
+        </div>
+        <div class="input-box">
+            
+            <input id="pswrd" type="password" name="password" placeholder="Enter Your Password" required>
+            <div class="underline"></div>
+            
+            <!--<input type="checkbox" onclick="toggleVisibility()" style="float: right; width: 15px; height: 15px;"/>-->
+
+        </div>
+        
+        <div class="input-box button">
+            <input type="submit" name="login" value="Log In">
+        </div>
+    </form>
+
+    {% for message in messages %}
+        
+        <p id="messages" class="alert-{{ message.tags }}">{{ message }}</p>
+        
+    {% endfor %}
+
+    <div class="option"><a href="{% url 'register' %}" style="color: #757575;">Don't have an account?</a></div>
+    <div class="option" style="margin-top: 0.5rem; margin-bottom: 10px;"><a href="{% url 'reset_password' %}" style="color: #757575;">Forgot your password?</a></div>
+    
+    <div class="option"><a href="{% url 'social:begin' 'github' %}" style="color: #757575;">Github</a></div>
+    <div class="option"><a href="{% url 'social:begin' 'google-oauth2' %}" style="color: #757575;">Google</a></div>
+
+    <!-- password visibility -->
+    {% block js %}
+        <script src="{% static 'site/js/login.js' %}"></script>
+    {% endblock %}
+
+{% endblock %}
