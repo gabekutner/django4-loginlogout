@@ -12,22 +12,26 @@
         {% csrf_token %}
         <div class="input-box underline">
             {{ form.username }}
-            <div class="underline"></div>
         </div>
         
         <div class="input-box underline">
             {{ form.email }}
-            <div class="underline"></div>
         </div>
 
         <div class="input-box underline">
             {{ form.password1 }}
-            <div class="underline"></div>
+            <a class="" id="toggle-password">
+                <span class="password-icon hide" id="open-eye"><i class="fas fa-eye" style="color: #757575;"></i></span>
+                <span class="password-icon" id="closed-eye"><i class="fas fa-eye-slash" style="color: #757575;"></i></span>
+            </a>
         </div>
 
         <div class="input-box underline">
             {{ form.password2 }}
-            <div class="underline"></div>
+            <a class="" id="toggle-password">
+                <span class="password-icon hide" id="open-eye"><i class="fas fa-eye" style="color: #757575;"></i></span>
+                <span class="password-icon" id="closed-eye"><i class="fas fa-eye-slash" style="color: #757575;"></i></span>
+            </a>
         </div>
 
         <div class="input-box button">
@@ -41,6 +45,9 @@
 
     {% block js %}
         <script src="{% static 'site/js/register.js' %}"></script>
+        <script src="{% static 'site/js/passwordVisibility.js' %}"></script>
     {% endblock %}
+
+
 
 {% endblock %}

@@ -17,3 +17,32 @@
     color: #3C7E3F;
     border-radius: 5px;
   }
+
+.github-div1 {
+  width: 48%;
+  height: 50px; 
+  margin-bottom: 20px; 
+  display: inline-block; 
+  background-color: #e6e3e3;
+}
+
+.google-div1 {
+  width: 48%; 
+  height: 50px; 
+  margin-bottom: 20px; 
+  display: block; 
+  float: right; 
+  background-color: #e6e3e3;
+}
+
+.google-div1:hover {
+  background-color: white;
+}
+.github-div1:hover {
+  background-color: white;
+}
+
+.socials-div2 {
+  display: block;
+  float: left;
+}

@@ -1,18 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block head_title %}
-    Home
+    Profile
 {% endblock %}
 
 {% block content %}
-    <div style="margin: 15px;">
-        <div class="option"><h4 style="color: #757575;">Here's your account username<h4></div>
-        <div class="option"><h3 style="color: #fff9;">{{ request.user }}</h3></div>
+
+    <div style="margin-top: 25px;">
+        <div class="option">
+            <h3 style="color: #fff9; font-size: 20px;">{{ request.user }}</h3>
+        </div>
+        <div class="option">
+            <h4 style="color: #fff9; margin: 5px 0 10px 0; font-size: 17px;">{{ request.user.email }}</h4>
+        </div>
     </div>
 
-    <div class="option"><h3 style="color: #757575;">That's it.</h3></div>
-    <div class="option"><a href="{% url 'logout' %}" style="color: #fff9; font-size: 20px;">Logout</a></div>
-    <div class="option"><h3 style="color: #757575;">or</h3></div>
-    <div class="option"><a href="{% url 'change-password' %}" style="color: #fff9; font-size: 20px;">Change Password</a></div>
+    <div class="option">
+        <div style="margin: 0; text-align: center;">
+            <div class="option"><a href="{% url 'logout' %}" style="color: #757575; font-size: 13px;">Logout</a></div>
+            <div class="option"><a href="{% url 'reset_password' %}" style="color: #757575; font-size: 12px;">Change Password</a></div>
+        </div>    
+    </div>
+
 
 {% endblock %}
